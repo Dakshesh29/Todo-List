@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --open",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,10 @@
   "bugs": {
     "url": "https://github.com/Dakshesh29/Todo-List/issues"
   },
-  "homepage": "https://github.com/Dakshesh29/Todo-List#readme",
+  "homepage": "https://Dakshesh29.github.io/Todo-List",
   "devDependencies": {
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.3",
     "style-loader": "^4.0.0",
     "webpack": "^5.99.9",
