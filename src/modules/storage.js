@@ -1,23 +1,24 @@
 import createProject from './project';
+import createTodo from './todo';
 
 let projects = [];
 
 export function loadProjectsFromStorage() {
-  const stored = localStorage.getItem('todo-projects');
-  if (stored) {
+  const data = localStorage.getItem('todo-projects');
+  if (data) {
     try {
-      const parsed = JSON.parse(stored);
-      projects = parsed.map(p => {
-        const project = createProject(p.name);
-        p.todos.forEach(todo => project.addTodo(todo));
-        return project;
+      const raw = JSON.parse(data);
+      projects = raw.map(p => {
+        const proj = createProject(p.name);
+        p.todos.forEach(t => proj.addTodo(createTodo(t.title, t.description, t.dueDate, t.priority)));
+        return proj;
       });
-    } catch (err) {
-      console.error('Failed to load from localStorage', err);
+    } catch {
+      projects = [createProject('Default')];
     }
   } else {
-    // Create default project if none found
     const defaultProject = createProject('Default');
+    defaultProject.addTodo(createTodo('Sample', 'A starter task', new Date().toISOString(), 'medium'));
     projects.push(defaultProject);
     saveProjectsToStorage();
   }

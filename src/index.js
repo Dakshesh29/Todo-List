@@ -1,8 +1,6 @@
 import './style.css';
-import { initApp } from './dom';
 import { loadProjectsFromStorage } from './modules/storage';
+import { initApp } from './dom';
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadProjectsFromStorage();
-  initApp();
-});
+loadProjectsFromStorage();
+initApp();

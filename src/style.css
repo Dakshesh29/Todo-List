@@ -1,10 +1,285 @@
-body {
-  font-family: sans-serif;
-  background-color: #f5f5f5;
+/* Reset and Base Styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fb;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+}
+
+/* App Layout */
 #app {
-  padding: 1rem;
+  display: flex;
+  width: 100%;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.03);
+}
+
+.sidebar h2 {
+  font-size: 1.3rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-item {
+  padding: 0.6rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+}
+
+.project-item:hover {
+  background-color: #f0f4ff;
+}
+
+.project-item.active {
+  background-color: #dce6ff;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+.add-project-btn {
+  margin-top: auto;
+  background: #0d47a1;
+  color: #fff;
+  border: none;
+  padding: 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.3s ease;
+}
+
+.add-project-btn:hover {
+  background: #09367d;
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.todo-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.add-todo-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-todo-btn:hover {
+  background-color: #218838;
+}
+
+/* Todo List */
+.todo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.todo-card {
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.todo-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.todo-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #222;
+}
+
+.todo-meta {
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-priority {
+  font-weight: 600;
+}
+
+.todo-priority.high {
+  color: #d32f2f;
+}
+
+.todo-priority.medium {
+  color: #f57c00;
+}
+
+.todo-priority.low {
+  color: #0288d1;
+}
+
+/* Todo Actions */
+.todo-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.todo-actions button {
+  background: none;
+  border: none;
+  color: #777;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.todo-actions button:hover {
+  color: #222;
+}
+
+/* Form Elements */
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+input,
+textarea,
+select {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  cursor: pointer;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Primary - Add */
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #0069d9;
+}
+
+/* Success - Save / Confirm */
+.btn-success {
+  background-color: #28a745;
+  color: white;
+}
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Danger - Delete */
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+}
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Warning - Edit */
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+.btn-warning:hover {
+  background-color: #e0a800;
+}
+
+/* Light - Cancel / Secondary actions */
+.btn-light {
+  background-color: #f8f9fa;
+  color: #333;
+}
+.btn-light:hover {
+  background-color: #e2e6ea;
+}
+
+/* Rounded Icon Buttons (optional) */
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Disable focus outline for mouse users */
+button:focus {
+  outline: none;
 }

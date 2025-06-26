@@ -9,6 +9,6 @@ export default function createProject(name) {
     },
     removeTodo(index) {
       todos.splice(index, 1);
-    },
+    }
   };
 }

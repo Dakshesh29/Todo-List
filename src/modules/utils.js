@@ -1,5 +1,9 @@
-import { format, parseISO } from 'date-fns';
+import { format } from 'date-fns';
 
-export function formatDate(isoString) {
-  return format(parseISO(isoString), 'PPP');
+export function formatDate(dateStr) {
+  try {
+    return format(new Date(dateStr), 'PP');
+  } catch {
+    return dateStr;
+  }
 }

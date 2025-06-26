@@ -4,6 +4,6 @@ export default function createTodo(title, description, dueDate, priority) {
     description,
     dueDate,
     priority,
-    completed: false,
+    completed: false
   };
 }
