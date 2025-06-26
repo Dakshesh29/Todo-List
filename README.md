@@ -1,8 +1,5 @@
 A simple and functional Todo List web application built with JavaScript, Webpack, and localStorage. Users can create multiple projects, add todos with priorities, and manage tasks — all persisted in the browser.
 
-🚀 Live Demo
-👉 View it on GitHub Pages
-
 
 
 🛠 Features
